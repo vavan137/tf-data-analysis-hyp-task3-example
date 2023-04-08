@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
-from scipy.stats import mannwhitneyu
+#from scipy.stats import mannwhitneyu
+from scipy.stats import ttest_ind
 
 chat_id = 5463739632 # Ваш chat ID, не меняйте название переменной
 
@@ -9,5 +10,6 @@ def solution(x: np.array,y: np.array) -> bool: # Одна или две выбо
     # Это будет вашим решением
     # Не меняйте название функции и её аргументы
     alpha = 0.01 
-    p = mannwhitneyu(x, y, alternative = 'greater')[1]
+    #p = mannwhitneyu(x, y, alternative = 'greater')[1] #1/3
+    p = ttest_ind(x, y, equal_var=False, alternative='less')
     return p < alpha
