@@ -11,5 +11,5 @@ def solution(x: np.array,y: np.array) -> bool: # Одна или две выбо
     # Не меняйте название функции и её аргументы
     alpha = 0.01 
     #p = mannwhitneyu(x, y, alternative = 'greater')[1] #1/3
-    p = ttest_ind(x, y, equal_var=False, alternative='less')
+    _,p = ttest_ind(x, y, equal_var=False)
     return p < alpha
